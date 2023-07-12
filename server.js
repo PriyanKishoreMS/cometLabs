@@ -3,10 +3,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const routes = require("./routes/routes");
 const connectMongoDB = require("./config/mongodb.config");
+const cookieParser = require("cookie-parser");
 
 connectMongoDB();
 
 app.use(express.json());
+app.use(cookieParser());
 
 app.use("/api", routes);
 
