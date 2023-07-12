@@ -1,5 +1,4 @@
 const User = require("../models/user.model");
-const { generateRefreshToken } = require("../utils/jwt.util");
 
 exports.createUser = async (name, email, password, role) => {
 	try {
@@ -9,10 +8,6 @@ exports.createUser = async (name, email, password, role) => {
 			password,
 			role,
 		});
-
-		const refreshToken = generateRefreshToken(user._id, user.role);
-
-		user.refreshToken = refreshToken;
 
 		const savedUser = await user.save();
 
@@ -27,6 +22,18 @@ exports.checkUserExists = async email => {
 		const user = await User.findOne({ email });
 		if (user) {
 			return true;
+		}
+		return false;
+	} catch (err) {
+		throw new Error(err.message);
+	}
+};
+
+exports.findUser = async email => {
+	try {
+		const user = await User.findOne({ email });
+		if (user) {
+			return user;
 		}
 		return false;
 	} catch (err) {

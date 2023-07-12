@@ -10,3 +10,13 @@ exports.hash = async (string, rounds) => {
 		return false;
 	}
 };
+
+exports.compare = async (string, hashedString) => {
+	try {
+		const isMatch = await bcrypt.compare(string, hashedString);
+		return isMatch;
+	} catch (err) {
+		console.error(err.message);
+		return false;
+	}
+};
