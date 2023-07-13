@@ -24,7 +24,7 @@ EMAIL_PASSWORD=<your_email_password>
 ```bash
 npm start
 ```
-1.  The application should be running on http://localhost:5000
+6.  The application should be running on http://localhost:5000<br><br>
 
 
 ## Public Routes
