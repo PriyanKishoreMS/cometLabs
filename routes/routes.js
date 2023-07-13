@@ -15,6 +15,11 @@ const {
 	updateProblem,
 	deleteProblem,
 } = require("../controllers/problem.controller");
+
+const { createTestcase } = require("../controllers/testcase.controller");
+
+const { createSubmission } = require("../controllers/submission.controller");
+
 const router = express.Router();
 
 router.route("/getusers").get(auth, getUsers);
@@ -31,5 +36,9 @@ router.route("/getAllProblemsFromDb").get(auth, getAllProblemsFromDb);
 router.route("/getProblem/:problemId").get(auth, getProblemById);
 router.route("/updateProblem/:problemId").put(adminAuth, updateProblem);
 router.route("/deleteProblem/:problemId").delete(adminAuth, deleteProblem);
+
+router.route("/createTestcase/:problemId").post(adminAuth, createTestcase);
+
+router.route("/createSubmission").post(auth, createSubmission);
 
 module.exports = router;

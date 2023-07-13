@@ -36,7 +36,7 @@ exports.createProblem = async (req, res) => {
 		problemData.problemId = problemId;
 		const problem = await addProblemToDb(problemData);
 
-		res.json({ problem, response });
+		res.json({ problem, message: "Problem created successfully" });
 	} catch (err) {
 		console.error(err.message);
 		res
@@ -141,7 +141,7 @@ exports.updateProblem = async (req, res) => {
 				.status(404)
 				.send({ msg: "Error in updating problem in database" });
 		}
-		res.json({ problem, response });
+		res.json({ problem, message: "Problem updated successfully" });
 	} catch (err) {
 		console.error(err.message);
 		res
@@ -165,7 +165,7 @@ exports.deleteProblem = async (req, res) => {
 				.status(404)
 				.send({ msg: "Error in deleting problem from database" });
 		}
-		res.json({ problem, response });
+		res.json({ problem, message: "Problem deleted successfully" });
 	} catch (err) {
 		console.error(err.message);
 		res

@@ -1,9 +1,13 @@
 const mongoose = require("mongoose");
 
-const testCaseSchema = new mongoose.Schema(
+const testcaseSchema = new mongoose.Schema(
 	{
 		problemId: {
-			type: mongoose.Schema.Types.ObjectId,
+			type: Number,
+			required: true,
+		},
+		number: {
+			type: Number,
 			required: true,
 		},
 		input: {
@@ -32,4 +36,4 @@ const testCaseSchema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-module.exports = mongoose.model("TestCase", testCaseSchema);
+module.exports = mongoose.model("Testcase", testcaseSchema);
