@@ -32,45 +32,46 @@ npm start
 These routes are publicly accessible:
 
 * **Sign Up:** `POST /api/signUp` - Create a new user account which responds with an access token and email<br><br>
-  ![Screenshot from 2023-07-13 22-41-04](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/0f3678ff-d459-4b10-b1df-8e7458fd7ec9)<br><br>
+  ![Screenshot from 2023-07-13 22-41-04](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/5895f3d4-2b4e-45db-9449-87366d885ea1)<br><br>
 * **Login:** `POST /api/login` - Authenticate and log in as a user.<br><br>
-![Screenshot from 2023-07-13 22-41-31](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/a29bf2fe-79b8-4e51-9b07-c2dd6292b3e0)<br><br>
+![Screenshot from 2023-07-13 22-41-31](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/440d23ca-a6b5-455e-bc06-db62410a486f)<br><br>
 
 * The access token is saved as a cookie in the browser<br><br>
-![Screenshot from 2023-07-13 22-42-08](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/6f7094fd-ec96-45bb-8ffc-0f5afc4fd5e7)<br><br>
+![Screenshot from 2023-07-13 22-42-08](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/dd051757-677e-4944-9719-6c3c8539d9a3)
+<br><br>
 ## Private Routes (Admin Authentication)
 
 These routes require admin authentication:
 
 * **Get Users:** `GET /api/getUsers` - Retrieve all users with pagination, sort, order, search.<br><br>
-  ![Screenshot from 2023-07-13 22-58-56](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/a1fceb43-b0d7-480e-af6a-b40b6e59f867)<br><br>
+  ![Screenshot from 2023-07-13 22-58-56](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/75266fb2-47a1-4d15-8b65-8b66e257fd06)<br><br>
 * **Create Problem:** `POST /api/createProblem` - Add a new problem to the database and Sphere Engine.<br><br>
-  ![Screenshot from 2023-07-13 22-45-12](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/b67907e6-3091-4766-a0db-a0e781eaf5fb)<br><br>
+  ![Screenshot from 2023-07-13 22-45-12](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/8713e0d6-e5a4-4da7-8b88-9841865cc29a)<br><br>
 * Trying to create a new problem as user which is not allowed<br><br>
-  ![Screenshot from 2023-07-13 23-01-20](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/798639eb-acd9-4e82-9aba-fb30bc9c2a8a)<br><br>
+  ![Screenshot from 2023-07-13 23-01-20](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/336c704b-af0f-42fd-b86b-c708da510cc2)<br><br>
 * **Get All Problems from Sphere:** `GET /api/getAllProblemsFromSphere` - Fetch all problems from the Sphere Engine.<br><br>
-  ![Screenshot from 2023-07-13 22-48-42](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/c779d2bd-ed35-4475-8587-f411b02496bb)<br><br>
+  ![Screenshot from 2023-07-13 22-48-42](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/dae89dba-bfdb-44e0-8558-fdc44a91ca23)<br><br>
 * **Get My Problems:** `GET /api/getMyProblems` - Retrieve a list of problems created by the logged-in admin user.<br><br>
-  ![Screenshot from 2023-07-13 22-48-13](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/150b55b5-c580-4d56-9d5b-9e15441d2199)<br><br>
+  ![Screenshot from 2023-07-13 22-48-13](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/0de0bcdd-fc97-40d7-9201-88c3918b2066)<br><br>
 * **Update Problem:** `PUT /api/updateProblem/:problemId` - Update a specific problem identified by the problem ID in the database and Sphere Engine.<br><br>
-  ![Screenshot from 2023-07-13 22-46-31](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/f32ddcdc-047a-43eb-8ff2-0ad8e5afa952)<br><br>
+  ![Screenshot from 2023-07-13 22-46-31](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/7bf6b45e-f1b3-4124-836e-f371501e8a77)<br><br>
 * **Delete Problem:** `DELETE /api/deleteProblem/:problemId` - Delete a specific problem identified by the problem ID in the database and Sphere Engine.<br><br>
-  ![Screenshot from 2023-07-13 22-57-47](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/f2a7546c-2d54-4f32-9c87-f4829da638eb)<br><br>
+  ![Screenshot from 2023-07-13 22-57-47](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/a729021e-ec68-4ef3-8a9b-936320920c58)<br><br>
 * **Create Testcase:** `POST /api/createTestcase/:problemId` - Add a new testcase for a specific problem identified by the problem ID in the database and Sphere Engine.<br><br>
-  ![Screenshot from 2023-07-13 22-51-04](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/2634ba96-1aba-4c88-ae8e-f96a34c6c01b)<br><br>
+  ![Screenshot from 2023-07-13 22-51-04](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/20fbc18a-df68-400f-874a-260ef39a5aaa)<br><br>
 
 ## Private Routes (User Authentication)
 
 These routes require user authentication:
 
 * **Get All Problems from DB:** `GET /api/getAllProblemsFromDb` - Retrieve all problems from the database.<br><br>
-  ![Screenshot from 2023-07-13 22-50-01](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/9fef0d6d-bb1c-40ea-9989-b63e35086a41)<br><br>
+  ![Screenshot from 2023-07-13 22-50-01](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/44c64d8e-2d19-400d-a785-c5793767afae)<br><br>
 * **Get Problem by ID:** `GET /api/getProblem/:problemId` - Retrieve a specific problem identified by the problem ID.<br><br>
-  ![Screenshot from 2023-07-13 22-47-16](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/05b91db4-cf48-41af-b45a-5313891b911f)<br><br>
+  ![Screenshot from 2023-07-13 22-47-16](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/87a2f0ab-a734-4c6b-b559-ed2ed7f0c9dd)<br><br>
 * **Create Submission:** `POST /api/createSubmission` - Submit a solution for a specific problem in Sphere Engine.<br><br>
-  ![Screenshot from 2023-07-13 22-57-19](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/5c9a993e-81aa-4964-a602-94ddae08563f)<br><br>
+  ![Screenshot from 2023-07-13 22-57-19](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/f5a67c4d-c6d4-4cb0-9dff-72dc78b57901)<br><br>
 * Mail sent to the user after submission<br><br>
-  ![image](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/56480fe8-105d-46ad-9d3b-38287e938df1)<br><br>
-* **Logout:** `POST /api/logout` - Log out the currently authenticated user.<br><br>
-  ![Screenshot from 2023-07-13 22-59-10](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/9950882b-7f48-4751-be84-105a011a57f3)<br><br>
+  ![Screenshot from 2023-07-13 23-59-54](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/7dc25f4f-7f40-4578-8a6a-baa0ee7929a0)<br><br>
+* **Logout:** `POST /api/logout` - Log out the currently authenticated user and clear cookies.<br><br>
+  ![Screenshot from 2023-07-13 22-59-10](https://github.com/PriyanKishoreMS/cometLabs/assets/80768547/becf1374-7907-41dd-a9b7-47199deaa9a9)<br><br>
 
