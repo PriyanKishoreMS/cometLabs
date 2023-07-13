@@ -1,5 +1,4 @@
 const axios = require("axios");
-require("dotenv").config();
 const SE_API_ADDRESS = process.env.SE_API_ADDRESS;
 const SE_API_KEY = process.env.SE_API_KEY;
 

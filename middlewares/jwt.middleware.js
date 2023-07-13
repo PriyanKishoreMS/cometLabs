@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
 const ACCESS_SECRET = process.env.ACCESS_SECRET;
 
 // @desc    Middleware to check if user is authenticated
