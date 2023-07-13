@@ -5,10 +5,26 @@ const {
 } = require("../utils/validate.util");
 const { hash, compare } = require("../utils/hash.util");
 const { generateAccessToken } = require("../utils/jwt.util");
-const { createUser, checkUserExists, findUser } = require("../db/user.queries");
+const {
+	createUser,
+	checkUserExists,
+	findUser,
+	getAllUsers,
+} = require("../db/user.queries");
 
-exports.getUsers = (req, res) => {
-	res.send("Get Users");
+exports.getUsers = async (req, res) => {
+	try {
+		const page = parseInt(req.query.page) - 1 || 0;
+		const limit = parseInt(req.query.limit) || 10;
+		const sort = req.query.sort || "createdAt";
+		const order = req.query.order || "desc";
+		const search = req.query.search || "";
+		const users = await getAllUsers(page, limit, sort, order, search);
+		res.json(users);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send({ msg: "Error in getting users" });
+	}
 };
 
 exports.signUp = async (req, res) => {
@@ -90,5 +106,5 @@ exports.login = async (req, res) => {
 
 exports.logout = (req, res) => {
 	res.clearCookie("accessToken");
-	res.json({ msg: "Logged out" });
+	res.json({ msg: "User Logged out" });
 };

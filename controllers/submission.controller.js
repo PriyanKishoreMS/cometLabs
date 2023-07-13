@@ -3,6 +3,9 @@ const {
 	getSubmissionStatus,
 } = require("../services/sphereEngine.services");
 
+const { mailSubmissionResponse } = require("../services/nodeMailer.services");
+const { findEmail } = require("../db/user.queries");
+
 exports.createSubmission = async (req, res) => {
 	try {
 		const { problemId, source, compilerId, tests } = req.body;
@@ -20,7 +23,13 @@ exports.createSubmission = async (req, res) => {
 		}
 		const submissionId = response.id;
 		const submission = await getSubmissionStatus(submissionId);
-		res.json(submission);
+		const email = await findEmail(req.userId);
+		await mailSubmissionResponse(email, submission);
+		res.json({
+			message: "Submission Created Successfully",
+			mailStatus: "Mail Sent Successfully",
+			submission,
+		});
 	} catch (err) {
 		console.error(err.message);
 		res

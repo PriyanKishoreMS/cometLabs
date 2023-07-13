@@ -22,23 +22,22 @@ const { createSubmission } = require("../controllers/submission.controller");
 
 const router = express.Router();
 
-router.route("/getusers").get(auth, getUsers);
 router.route("/signUp").post(signUp);
 router.route("/login").post(login);
 router.route("/logout").post(logout);
 
+router.route("/getusers").get(adminAuth, getUsers);
 router.route("/createProblem").post(adminAuth, createProblem);
 router
 	.route("/getAllProblemsFromSphere")
 	.get(adminAuth, getAllProblemsFromSphere);
 router.route("/getMyProblems").get(adminAuth, getMyProblems);
-router.route("/getAllProblemsFromDb").get(auth, getAllProblemsFromDb);
-router.route("/getProblem/:problemId").get(auth, getProblemById);
 router.route("/updateProblem/:problemId").put(adminAuth, updateProblem);
 router.route("/deleteProblem/:problemId").delete(adminAuth, deleteProblem);
-
 router.route("/createTestcase/:problemId").post(adminAuth, createTestcase);
 
+router.route("/getAllProblemsFromDb").get(auth, getAllProblemsFromDb);
+router.route("/getProblem/:problemId").get(auth, getProblemById);
 router.route("/createSubmission").post(auth, createSubmission);
 
 module.exports = router;
