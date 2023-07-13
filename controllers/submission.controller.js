@@ -6,6 +6,9 @@ const {
 const { mailSubmissionResponse } = require("../services/nodeMailer.services");
 const { findEmail } = require("../db/user.queries");
 
+// @desc 	Create a submission in Sphere Engine, check for status and mail the response
+// @route 	POST /api/createSubmission
+// @access 	Private - Authenticated User
 exports.createSubmission = async (req, res) => {
 	try {
 		const { problemId, source, compilerId, tests } = req.body;

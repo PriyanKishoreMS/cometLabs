@@ -17,16 +17,16 @@ const {
 } = require("../controllers/problem.controller");
 
 const { createTestcase } = require("../controllers/testcase.controller");
-
 const { createSubmission } = require("../controllers/submission.controller");
 
 const router = express.Router();
 
+// Public routes
 router.route("/signUp").post(signUp);
 router.route("/login").post(login);
-router.route("/logout").post(logout);
 
-router.route("/getusers").get(adminAuth, getUsers);
+// Private routes with admin authentication
+router.route("/getUsers").get(adminAuth, getUsers);
 router.route("/createProblem").post(adminAuth, createProblem);
 router
 	.route("/getAllProblemsFromSphere")
@@ -36,8 +36,10 @@ router.route("/updateProblem/:problemId").put(adminAuth, updateProblem);
 router.route("/deleteProblem/:problemId").delete(adminAuth, deleteProblem);
 router.route("/createTestcase/:problemId").post(adminAuth, createTestcase);
 
+// Private routes with user authentication
 router.route("/getAllProblemsFromDb").get(auth, getAllProblemsFromDb);
 router.route("/getProblem/:problemId").get(auth, getProblemById);
 router.route("/createSubmission").post(auth, createSubmission);
+router.route("/logout").post(auth, logout);
 
 module.exports = router;

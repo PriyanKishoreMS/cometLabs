@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	// role has enum instead of boolean to allow for future roles
 	role: {
 		type: String,
 		enum: ["admin", "user"],

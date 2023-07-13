@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 
+// Schema taken according to the request parameters
+// to create a problem in Sphere Engine
+// https://docs.sphere-engine.com/problems/api/overview-version-4#createProblem
 const problemSchema = new mongoose.Schema(
 	{
 		creatorId: {
@@ -19,7 +22,7 @@ const problemSchema = new mongoose.Schema(
 		},
 		typeId: {
 			type: Number,
-			enum: [0, 1, 2, 3, 4],
+			enum: [0, 1, 2, 4],
 			default: 0,
 		},
 		masterjudgeId: {

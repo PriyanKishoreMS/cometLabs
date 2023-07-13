@@ -3,6 +3,9 @@ const {
 	createTestcaseInSphere,
 } = require("../services/sphereEngine.services.js");
 
+// @desc 	Create a testcase in Sphere Engine and add it to the database
+// @route 	POST /api/createTestcase/:problemId
+// @access 	Private - Admin
 exports.createTestcase = async (req, res) => {
 	try {
 		const { problemId } = req.params;

@@ -14,6 +14,9 @@ const {
 	deleteProblemFromDb,
 } = require("../db/problem.queries");
 
+// @desc	 Create a problem in Sphere Engine and add it to the database
+// @route	 POST /api/createProblem
+// @access	 Private - Admin
 exports.createProblem = async (req, res) => {
 	try {
 		const { name, body, typeId, masterjudgeId, interactive } = req.body;
@@ -45,6 +48,9 @@ exports.createProblem = async (req, res) => {
 	}
 };
 
+// @desc 	Get all problems from Sphere Engine
+// @route 	GET /api/getAllProblemsFromSphere
+// @access 	Private - Admin
 exports.getAllProblemsFromSphere = async (req, res) => {
 	try {
 		const limit = parseInt(req.query.limit) || 10;
@@ -59,6 +65,9 @@ exports.getAllProblemsFromSphere = async (req, res) => {
 	}
 };
 
+// @desc 	Get all problem created by that admin with pagination
+// @route 	GET /api/getMyProblems
+// @access 	Private - Admin
 exports.getMyProblems = async (req, res) => {
 	try {
 		const creatorId = req.userId;
@@ -82,6 +91,9 @@ exports.getMyProblems = async (req, res) => {
 	}
 };
 
+// @desc 	Get all problems stored in database with pagination
+// @route 	GET /api/getAllProblemsFromDb
+// @access 	Private - Authenticated User
 exports.getAllProblemsFromDb = async (req, res) => {
 	try {
 		const page = parseInt(req.query.page) - 1 || 0;
@@ -98,6 +110,9 @@ exports.getAllProblemsFromDb = async (req, res) => {
 	}
 };
 
+// @desc 	Get a problem by id from Sphere Engine and database
+// @route 	GET /api/getProblem/:problemId
+// @access 	Private - Authenticated User
 exports.getProblemById = async (req, res) => {
 	try {
 		const problemId = req.params.problemId;
@@ -118,6 +133,9 @@ exports.getProblemById = async (req, res) => {
 	}
 };
 
+// @desc 	Update a problem in Sphere Engine and database
+// @route 	PUT /api/updateProblem/:problemId
+// @access 	Private - Admin
 exports.updateProblem = async (req, res) => {
 	try {
 		const problemId = req.params.problemId;
@@ -150,6 +168,9 @@ exports.updateProblem = async (req, res) => {
 	}
 };
 
+// @desc 	Delete a problem from Sphere Engine and database
+// @route 	DELETE /api/deleteProblem/:problemId
+// @access 	Private - Admin
 exports.deleteProblem = async (req, res) => {
 	try {
 		const problemId = req.params.problemId;

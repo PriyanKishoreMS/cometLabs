@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 
+// Schema taken according to the request parameters
+// to create a testcase in Sphere Engine
+// https://docs.sphere-engine.com/problems/api/overview-version-4#createProblemTestcase
 const testcaseSchema = new mongoose.Schema(
 	{
 		problemId: {

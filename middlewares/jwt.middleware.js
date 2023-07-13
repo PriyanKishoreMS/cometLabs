@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const ACCESS_SECRET = process.env.ACCESS_SECRET;
 
+// @desc    Middleware to check if user is authenticated
 exports.auth = async (req, res, next) => {
 	try {
 		const accessToken = req.cookies.accessToken;
@@ -18,6 +19,7 @@ exports.auth = async (req, res, next) => {
 	}
 };
 
+// @desc    Middleware for admin authentication
 exports.adminAuth = async (req, res, next) => {
 	try {
 		const accessToken = req.cookies.accessToken;

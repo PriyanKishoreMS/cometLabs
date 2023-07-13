@@ -12,6 +12,9 @@ const {
 	getAllUsers,
 } = require("../db/user.queries");
 
+// @desc 	Get all users (paginated, sorted, searched)
+// @route 	GET /api/getUsers
+// @access 	Private - Admin
 exports.getUsers = async (req, res) => {
 	try {
 		const page = parseInt(req.query.page) - 1 || 0;
@@ -27,6 +30,9 @@ exports.getUsers = async (req, res) => {
 	}
 };
 
+// @desc 	Sign up a new user, generate access token, store access token in cookie, send back user email and access token
+// @route 	POST /api/signUp
+// @access 	Public
 exports.signUp = async (req, res) => {
 	try {
 		const { name, email, password, role } = req.body;
@@ -68,6 +74,9 @@ exports.signUp = async (req, res) => {
 	}
 };
 
+// @desc 	Login a user, generate access token, store access token in cookie, send back user email and access token
+// @route 	POST /api/login
+// @access 	Public
 exports.login = async (req, res) => {
 	try {
 		const { email, password } = req.body;
@@ -104,6 +113,9 @@ exports.login = async (req, res) => {
 	}
 };
 
+// @desc 	Logout a user, clear access token cookie
+// @route 	POST /api/logout
+// @access 	Private - Authenticated User
 exports.logout = (req, res) => {
 	res.clearCookie("accessToken");
 	res.json({ msg: "User Logged out" });
