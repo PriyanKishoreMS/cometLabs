@@ -41,11 +41,11 @@ exports.signUp = async (req, res) => {
 		let savedUser = await createUser(name, email, hashedPassword, role);
 		accessToken = generateAccessToken(savedUser._id, savedUser.role);
 		res.cookie("accessToken", accessToken, { httpOnly: true });
-		const result = {
+		const response = {
 			email: savedUser.email,
 			accessToken: accessToken,
 		};
-		res.json(result);
+		res.json(response);
 	} catch (err) {
 		console.error(err.message);
 		res.status(500).json({ msg: "Error registering User", err: err.message });
@@ -77,11 +77,11 @@ exports.login = async (req, res) => {
 		accessToken = generateAccessToken(user._id, user.role);
 		res.cookie("accessToken", accessToken, { httpOnly: true });
 		await user.save();
-		const result = {
+		const response = {
 			email: user.email,
 			accessToken: accessToken,
 		};
-		res.json(result);
+		res.json(response);
 	} catch (err) {
 		console.error(err.message);
 		res.status(500).json({ msg: "Error logging in User", err: err.message });
