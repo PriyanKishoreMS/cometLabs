@@ -2,7 +2,30 @@
 # CodeComet API 
 Click [here](https://cometcode.onrender.com) to use the application.
 `NOTE: The application is hosted on a free server and hence it might take a few seconds to load.`<br><br>
-TECH STACK: Node, Express, MongoDB, Sphere Engine API
+**TECH STACK: Node, Express, MongoDB, Sphere Engine API** <br><br>
+
+### Installation
+1. Clone the repository
+2. Install dependencies
+```bash
+npm install
+```
+3. Sign in to Sphere Engine to get the API key
+4. Create a .env file in the root directory and add the following environment variables
+```bash
+MONGO_LOCAL_URI=<your_mongodb_uri>
+ACCESS_SECRET=<your_accesskey_secret_for_jwt>
+SE_API_ADDRESS=<your_sphere_engine_api_address>
+SE_API_KEY=<your_sphere_engine_api_key>
+EMAIL_ID=<your_email_id>
+EMAIL_PASSWORD=<your_email_password>
+```
+5.  Run the application
+```bash
+npm start
+```
+1.  The application should be running on http://localhost:5000
+
 
 ## Public Routes
 
